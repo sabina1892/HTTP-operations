@@ -1,6 +1,7 @@
 package org.example.spring6restmvc.controller;
 
-import lombok.AllArgsConstructor;
+
+import lombok.RequiredArgsConstructor;
 import org.example.spring6restmvc.model.Food;
 import org.example.spring6restmvc.service.FoodService;
 import org.springframework.http.HttpHeaders;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/food")
 public class FoodController {
     private final FoodService foodService;

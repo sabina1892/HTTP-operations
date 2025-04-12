@@ -1,9 +1,9 @@
 package org.example.spring6restmvc.controller;
 
 import lombok.AllArgsConstructor;
-import org.example.spring6restmvc.model.Beer;
+import lombok.RequiredArgsConstructor;
 import org.example.spring6restmvc.model.Customer;
-import org.example.spring6restmvc.service.CustomServiceImpl;
+import org.example.spring6restmvc.service.CustomService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/customer")
 public class CustomerController {
-    private final CustomServiceImpl customService;
+    private final CustomService customService;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Customer> getAllCustomers() {

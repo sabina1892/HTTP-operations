@@ -1,23 +1,23 @@
 package org.example.spring6restmvc.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.spring6restmvc.model.Beer;
 import org.example.spring6restmvc.service.BeerService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 @Slf4j
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/beer")
 public class BeerController {
     private final BeerService beerService;
+
     @RequestMapping(value="{beerId}", method=RequestMethod.GET)
     public Beer getBeerById(@PathVariable("beerId") UUID beerId){
         log.debug("Get Beer by Id 1234- in controller update");

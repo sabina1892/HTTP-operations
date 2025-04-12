@@ -7,47 +7,47 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
-public class CustomServiceImpl implements CustomService {
-    Map<UUID, Customer> customers;
+        public class CustomServiceImpl implements CustomService {
+            Map<UUID, Customer> customers;
 
-    public CustomServiceImpl() {
-        this.customers = new HashMap<>();
-        Customer customer1 = Customer.builder()
-                .customerName("alice")
-                .version(112)
-                .id(UUID.randomUUID())
-                .lastModifiedDate(LocalDateTime.now())
-                .createdDate(LocalDateTime.now()).build();
-        Customer customer2 = Customer.builder()
-                .customerName("joy")
-                .version(113)
-                .id(UUID.randomUUID())
-                .lastModifiedDate(LocalDateTime.now())
-                .createdDate(LocalDateTime.now()).build();
-        customers.put(customer1.getId(), customer1);
-        customers.put(customer2.getId(), customer2);
-    }
+            public CustomServiceImpl() {
+                this.customers = new HashMap<>();
+                Customer customer1 = Customer.builder()
+                        .customerName("alice")
+                        .version(112)
+                        .id(UUID.randomUUID())
+                        .lastModifiedDate(LocalDateTime.now())
+                        .createdDate(LocalDateTime.now()).build();
+                Customer customer2 = Customer.builder()
+                        .customerName("joy")
+                        .version(113)
+                        .id(UUID.randomUUID())
+                        .lastModifiedDate(LocalDateTime.now())
+                        .createdDate(LocalDateTime.now()).build();
+                customers.put(customer1.getId(), customer1);
+                customers.put(customer2.getId(), customer2);
+            }
 
-    @Override
-    public List<Customer> listCustomers() {
-        return new ArrayList<>(customers.values());
-    }
+            @Override
+            public List<Customer> listCustomers() {
+                return new ArrayList<>(customers.values());
+            }
 
-    @Override
-    public Customer getCustomerById(UUID id) {
-        return customers.get(id);
-    }
+            @Override
+            public Customer getCustomerById(UUID id) {
+                return customers.get(id);
+            }
 
-    @Override
-    public Customer savedCustomer(Customer customer) {
-        Customer saveCustomer = customer.builder()
-                .customerName("Mike")
-                .createdDate(LocalDateTime.now())
-                .lastModifiedDate(LocalDateTime.now())
-                .id(UUID.randomUUID())
-                .version(114)
-                .build();
-        customers.put(saveCustomer.getId(),saveCustomer);
+            @Override
+            public Customer savedCustomer(Customer customer) {
+                Customer saveCustomer = customer.builder()
+                        .customerName("Mike")
+                        .createdDate(LocalDateTime.now())
+                        .lastModifiedDate(LocalDateTime.now())
+                        .id(UUID.randomUUID())
+                        .version(114)
+                        .build();
+                customers.put(saveCustomer.getId(),saveCustomer);
         return saveCustomer;
     }
 
@@ -66,6 +66,4 @@ public class CustomServiceImpl implements CustomService {
     public void deleteById(UUID customerId) {
         customers.remove(customerId);
     }
-
-
 }

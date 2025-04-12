@@ -6,8 +6,9 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
+
 @Builder
+@Data
 public class Customer {
     private String customerName;
     private UUID id;

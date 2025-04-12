@@ -7,8 +7,8 @@ import java.util.UUID;
 
 public interface CustomService {
     List<Customer> listCustomers();
-    Customer getCustomerById(UUID id);
 
+    Customer getCustomerById(UUID id);
 
     Customer savedCustomer(Customer customer);
 
