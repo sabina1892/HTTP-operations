@@ -14,7 +14,7 @@ public interface FoodService {
 
     Food saveFood(Food food);
 
-    void updatedFoodById(Food food, UUID id);
+    void updatedFoodById(UUID id, Food food);
 
     void deleteFoodById(UUID id);
 

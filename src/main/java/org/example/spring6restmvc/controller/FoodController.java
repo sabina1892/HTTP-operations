@@ -31,12 +31,12 @@ public class FoodController {
     public ResponseEntity saveFood(@RequestBody Food food){
         Food saveFood = foodService.saveFood(food);
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.add("Location", "/api/v1/food/"+saveFood.getId());
-        return new ResponseEntity(HttpStatus.CREATED);
+        responseHeaders.add("Location", "/api/v1/food/" + saveFood.getId());
+        return new ResponseEntity(responseHeaders, HttpStatus.CREATED);
     }
     @PutMapping("{foodId}")
-    public ResponseEntity updatedFood(@RequestBody Food food, @PathVariable("foodId") UUID id){
-        foodService.updatedFoodById(food,id);
+    public ResponseEntity updatedFood(@PathVariable("foodId") UUID foodId, @RequestBody Food food){
+        foodService.updatedFoodById(foodId, food);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
     @DeleteMapping("{foodId}")

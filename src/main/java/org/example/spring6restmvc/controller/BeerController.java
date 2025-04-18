@@ -34,8 +34,8 @@ public class BeerController {
         headers.add("Location","/api/v1/beer/" + savedBeer.getId());
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
-    @PutMapping({"beerId"})
-    public ResponseEntity updateBeerId(@PathVariable UUID beerId, @RequestBody Beer beer){
+    @PutMapping("{beerId}")
+    public ResponseEntity updateBeerId(@PathVariable("beerId") UUID beerId, @RequestBody Beer beer){
         beerService.updatedBeerId(beerId,beer);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

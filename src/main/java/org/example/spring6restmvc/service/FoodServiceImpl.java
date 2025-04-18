@@ -19,7 +19,15 @@ public class FoodServiceImpl implements FoodService {
                 .name("Tomato")
                 .price(556)
                 .build();
+        Food food2 = Food.builder()
+                .count(51)
+                .id(UUID.randomUUID())
+                .country("Turkey")
+                .name("Potato")
+                .price(146)
+                .build();
         foods.put(UUID.randomUUID(), food1);
+        foods.put(UUID.randomUUID(),food2);
     }
     @Override
     public List<Food> getAllFoods() {
@@ -46,7 +54,7 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public void updatedFoodById(Food food, UUID id) {
+    public void updatedFoodById(UUID id,Food food) {
         Food existing = foods.get(id);
         existing.setId(food.getId());
         existing.setName(food.getName());
